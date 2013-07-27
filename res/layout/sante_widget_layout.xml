@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="5dip"
+    android:background="@drawable/widget_bg"
+    android:orientation="vertical"
+    android:padding="8dip" >
+
+    <ImageView
+        android:id="@+id/widget_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+<TextView
+        android:id="@+id/nap_time"
+        android:text="Erase me"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/widget_bg"
+        style="@style/Widget.Text"/>
+</LinearLayout>
