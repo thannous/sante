@@ -25,14 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-                android:name="com.cloudtech.sante.UserManagement"
-                android:label="@string/action_users" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category." />
-            </intent-filter>
-        </activity>
+     
 
   		<activity android:name="com.cloudtech.sante.DocumentActivity" />
   		<activity android:name="com.cloudtech.sante.MemoActivity"/>
@@ -40,6 +33,7 @@
   		<activity android:name="com.cloudtech.sante.InfoActivity" />
   		<activity android:name="com.cloudtech.sante.EvolutionActivity" />
   		<activity android:name="com.cloudtech.sante.UrgenceActivity" />
+  		<activity android:name="com.cloudtech.sante.UserManagement" />
 		<receiver android:name="SanteWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
