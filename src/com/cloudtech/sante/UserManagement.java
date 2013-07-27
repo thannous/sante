@@ -16,7 +16,13 @@ public class UserManagement extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_management);
-
+        Button backButton = (Button)this.findViewById(R.id.btn_back);
+        backButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -35,7 +41,7 @@ public class UserManagement extends Activity {
                 dialog.setTitle(R.string.action_adduser);
                 dialog.setContentView(R.layout.add_user);
                 dialog.setCancelable(true);
-                final Button button =(Button)dialog.findViewById(R.id.btn_cancel);
+                Button button =(Button)dialog.findViewById(R.id.btn_cancel);
                 button.setOnClickListener(new Button.OnClickListener() {
                     public void onClick(View v)
                     {
