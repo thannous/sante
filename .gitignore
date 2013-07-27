@@ -19,3 +19,6 @@ local.properties
 .classpath
 .project
 
+#IntelliJ files
+.idea/
+.settings/

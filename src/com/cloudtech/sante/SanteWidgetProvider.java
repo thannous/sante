@@ -49,7 +49,7 @@ public class SanteWidgetProvider extends AppWidgetProvider {
 			i.setData(Uri.withAppendedPath( Uri.parse("imgwidget://widget/id/"), String.valueOf(wid)));
  
 			service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);  
- 
+
 			// Par d�faut interval de 60 minutes
 			long time = Long.valueOf(this.prefs.getString("widget"+wid+"time", "60"));
  

@@ -1,0 +1,170 @@
+#
+# generated on 2013/07/27 02:26:08
+#
+# --table-start--
+dataClass=com.example.com.bemyapp.sante.model.User
+tableName=user
+# --table-fields-start--
+# --field-start--
+fieldName=idUser
+id=true
+# --field-end--
+# --field-start--
+fieldName=birthDate
+# --field-end--
+# --field-start--
+fieldName=bloodType
+# --field-end--
+# --field-start--
+fieldName=firstName
+# --field-end--
+# --field-start--
+fieldName=iceEmail
+# --field-end--
+# --field-start--
+fieldName=iceFirtName
+# --field-end--
+# --field-start--
+fieldName=iceLastName
+# --field-end--
+# --field-start--
+fieldName=icePhone
+# --field-end--
+# --field-start--
+fieldName=isMain
+# --field-end--
+# --field-start--
+fieldName=lastName
+# --field-end--
+# --field-start--
+fieldName=password
+# --field-end--
+# --field-start--
+fieldName=physicianAdress
+# --field-end--
+# --field-start--
+fieldName=physicianPhone
+# --field-end--
+# --field-start--
+fieldName=socialSecurity
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.com.bemyapp.sante.model.Allergy
+tableName=allergy
+# --table-fields-start--
+# --field-start--
+fieldName=idAllergy
+id=true
+# --field-end--
+# --field-start--
+fieldName=nameAllergy
+# --field-end--
+# --field-start--
+fieldName=user
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.com.bemyapp.sante.model.DocCategory
+tableName=doccategory
+# --table-fields-start--
+# --field-start--
+fieldName=idDocCategory
+id=true
+# --field-end--
+# --field-start--
+fieldName=nameDocCategory
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.com.bemyapp.sante.model.Doc
+tableName=doc
+# --table-fields-start--
+# --field-start--
+fieldName=idDoc
+id=true
+# --field-end--
+# --field-start--
+fieldName=category
+# --field-end--
+# --field-start--
+fieldName=idPicture
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=user
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.com.bemyapp.sante.model.PreviousHistory
+tableName=previoushistory
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=doDate
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=user
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.com.bemyapp.sante.model.Treatment
+tableName=treatment
+# --table-fields-start--
+# --field-start--
+fieldName=idTreatment
+id=true
+# --field-end--
+# --field-start--
+fieldName=nameTreatment
+# --field-end--
+# --field-start--
+fieldName=startDate
+# --field-end--
+# --field-start--
+fieldName=finishDate
+# --field-end--
+# --field-start--
+fieldName=user
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.com.bemyapp.sante.model.Vaccin
+tableName=vaccin
+# --table-fields-start--
+# --field-start--
+fieldName=idVaccin
+id=true
+# --field-end--
+# --field-start--
+fieldName=doDate
+# --field-end--
+# --field-start--
+fieldName=nameVaccin
+# --field-end--
+# --field-start--
+fieldName=user
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
