@@ -3,7 +3,7 @@
 
 
     <string name="app_name">Sante</string>
-
+	<string name="menu_settings">Photo Settings</string>
     <string name="action_settings">Settings</string>
     <string name="action_users">Gestion utilisateurs</string>
     <string name="hello_world">Hello world!</string>
