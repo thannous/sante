@@ -5,7 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
 public class Doc {
-	@DatabaseField(id=true)
+	@DatabaseField(generatedId=true)
 	private int idDoc;
 	@DatabaseField
 	private int category;
@@ -14,20 +14,20 @@ public class Doc {
 	@DatabaseField
 	private String title;
 	@DatabaseField
-	private User user;
+	private int idUserDoc;
 	
 	public Doc() {
 		super();
 
 	}
 
-	public Doc(int idDoc, int category, int idPicture, String title, User user) {
+	public Doc(int idDoc, int category, int idPicture, String title, int idUserDoc) {
 		super();
 		this.idDoc = idDoc;
 		this.category = category;
 		this.idPicture = idPicture;
 		this.title = title;
-		this.user = user;
+		this.idUserDoc = idUserDoc;
 	}
 
 	public int getIdDoc() {
@@ -62,12 +62,12 @@ public class Doc {
 		this.title = title;
 	}
 	
-	public User getUser() {
-		return user;
+	public int getUser() {
+		return idUserDoc;
 	}
 	
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(int idUserDoc) {
+		this.idUserDoc = idUserDoc;
 	}
 
 	@Override

@@ -7,26 +7,26 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
 public class Vaccin {
-	@DatabaseField(id=true)
+	@DatabaseField(generatedId=true)
 	private int idVaccin;
 	@DatabaseField
 	private Date doDate;
 	@DatabaseField
 	private String nameVaccin;
 	@DatabaseField
-	private User user;
+	private int idUserVaccin;
 	
 	public Vaccin() {
 		super();
 		
 	}
 	
-	public Vaccin(int idVaccin, Date doDate, String nameVaccin, User user) {
+	public Vaccin(int idVaccin, Date doDate, String nameVaccin, int idUserVaccin) {
 		super();
 		this.idVaccin = idVaccin;
 		this.doDate = doDate;
 		this.nameVaccin = nameVaccin;
-		this.user = user;
+		this.idUserVaccin = idUserVaccin;
 	}
 
 	public int getIdVaccin() {
@@ -53,12 +53,12 @@ public class Vaccin {
 		this.nameVaccin = nameVaccin;
 	}
 	
-	public User getUser() {
-		return user;
+	public int getUser() {
+		return idUserVaccin;
 	}
 	
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(int idUserVaccin) {
+		this.idUserVaccin = idUserVaccin;
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
 public class Treatment {
-	@DatabaseField(id=true)
+	@DatabaseField(generatedId=true)
 	private int idTreatment;
 	@DatabaseField
 	private String nameTreatment;
@@ -16,7 +16,7 @@ public class Treatment {
 	@DatabaseField
 	private Date  finishDate;
 	@DatabaseField
-	private User user;
+	private int idUserTreatment;
 	
 	public Treatment() {
 		super();
@@ -24,13 +24,13 @@ public class Treatment {
 	}
 
 	public Treatment(int idTreatment, String nameTreatment, Date startDate,
-			Date finishDate, User user) {
+			Date finishDate, int idUserTreatment) {
 		super();
 		this.idTreatment = idTreatment;
 		this.nameTreatment = nameTreatment;
 		this.startDate = startDate;
 		this.finishDate = finishDate;
-		this.user = user;
+		this.idUserTreatment = idUserTreatment;
 	}
 
 	public int getIdTreatment() {
@@ -65,12 +65,12 @@ public class Treatment {
 		this.finishDate = finishDate;
 	}
 	
-	public User getUser() {
-		return user;
+	public int getUser() {
+		return idUserTreatment;
 	}
 	
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(int idUserTreatment) {
+		this.idUserTreatment = idUserTreatment;
 	}
 
 	@Override

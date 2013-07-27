@@ -5,23 +5,23 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
 public class Allergy {
-	@DatabaseField(id=true)
+	@DatabaseField(generatedId=true)
 	private int idAllergy;
 	@DatabaseField
 	private String nameAllergy;
 	@DatabaseField
-	private User user;
+	private int idUserAllergy;
 	
 	public Allergy() {
 		super();
 
 	}
 
-	public Allergy(int idAllergy, String nameAllergy, User user) {
+	public Allergy(int idAllergy, String nameAllergy, int idUserAllergy) {
 		super();
 		this.idAllergy = idAllergy;
 		this.nameAllergy = nameAllergy;
-		this.user = user;
+		this.idUserAllergy = idUserAllergy;
 	}
 
 	public int getIdAllergy() {
@@ -40,12 +40,12 @@ public class Allergy {
 		this.nameAllergy = nameAllergy;
 	}
 	
-	public User getUser() {
-		return user;
+	public int getUser() {
+		return idUserAllergy;
 	}
 	
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(int idUserAllergy) {
+		this.idUserAllergy = idUserAllergy;
 	}
 
 	@Override

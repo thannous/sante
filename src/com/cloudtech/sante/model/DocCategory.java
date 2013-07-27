@@ -5,7 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
 public class DocCategory {
-	@DatabaseField(id=true)
+	@DatabaseField(generatedId=true)
 	private int idDocCategory;
 	@DatabaseField
 	private String nameDocCategory;
