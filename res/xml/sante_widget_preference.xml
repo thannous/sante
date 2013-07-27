@@ -13,6 +13,7 @@
 			android:entryValues="@array/widgetListOptionsTimeValues"
 			android:negativeButtonText="Annuler"
 			android:key="widget_time"
+			android:resizeMode="vertical"
 			android:defaultValue="60"
 			>
 		</ListPreference>

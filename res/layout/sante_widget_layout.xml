@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/widget_image"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+	<TextView
         android:id="@+id/nap_time"
-        android:text="Erase me"
+        android:text="Telephone d'urgence"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
