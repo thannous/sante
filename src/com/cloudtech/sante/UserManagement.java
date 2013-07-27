@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * Created by a.talviy on 27/07/13.
@@ -14,6 +16,7 @@ public class UserManagement extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_management);
+
     }
 
     @Override
@@ -27,9 +30,21 @@ public class UserManagement extends Activity {
 
         switch (item.getItemId()) {
             case R.id.action_adduser:
-                Dialog dialog = new Dialog(this);
+                final Dialog dialog = new Dialog(this);
+                //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setTitle(R.string.action_adduser);
                 dialog.setContentView(R.layout.add_user);
                 dialog.setCancelable(true);
+                final Button button =(Button)dialog.findViewById(R.id.btn_cancel);
+                button.setOnClickListener(new Button.OnClickListener() {
+                    public void onClick(View v)
+                    {
+                        dialog.cancel();
+                    }
+                });
+
+                //date.init(date.getYear(), date.getMonth(), date.getDayOfMonth(),null);
+
                 dialog.show();
                 break;
             default:

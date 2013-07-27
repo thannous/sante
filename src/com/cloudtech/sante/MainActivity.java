@@ -5,20 +5,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnItemClickListener {
 
@@ -27,7 +17,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	static final LauncherIcon[] ICONS = {
 			new LauncherIcon(R.drawable.user_info, "Mes document",
 					"user_info.png"),
-			new LauncherIcon(R.drawable.user_info, "Mes infos de santé",
+			new LauncherIcon(R.drawable.user_info, "Mes infos de sante",
 					"user_info.png"),
 			new LauncherIcon(R.drawable.user_info, "Urgence",
 					"user_info.png"),
