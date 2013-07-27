@@ -4,6 +4,8 @@ import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,14 +22,7 @@ public class DocumentActivity extends Activity implements OnClickListener, Pictu
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.document_layout);
 
-		// set up our preview surface
-		FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-		cameraSurfaceView = new CameraSurfaceView(this);
-		preview.addView(cameraSurfaceView);
 
-		// grab out shutter button so we can reference it later
-		shutterButton = (Button) findViewById(R.id.shutter_button);
-		shutterButton.setOnClickListener(this);
 	}
 
 	@Override
@@ -38,13 +33,9 @@ public class DocumentActivity extends Activity implements OnClickListener, Pictu
 
 	@Override
 	public void onClick(View v) {
-		takePicture();
+	
 	}
 
-	private void takePicture() {
-		shutterButton.setEnabled(false);
-		cameraSurfaceView.takePicture(this);
-	}
 
 	@Override
 	public void onPictureTaken(byte[] data, Camera camera) {
@@ -54,4 +45,15 @@ public class DocumentActivity extends Activity implements OnClickListener, Pictu
 		camera.startPreview();
 		shutterButton.setEnabled(true);
 	}
+	
+	private boolean checkCameraHardware(Context context) {
+	    if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+	        // this device has a camera
+	        return true;
+	    } else {
+	        // no camera on this device
+	        return false;
+	    }
+	}
+	
 }
