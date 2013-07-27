@@ -3,6 +3,7 @@
    xmlns:android="http://schemas.android.com/apk/res/android"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
+   android:padding="10dp"
    android:background="@android:color/white">
  
     <GridView
@@ -11,7 +12,7 @@
        android:layout_height="wrap_content"
        android:listSelector="@android:color/transparent"
        android:stretchMode="columnWidth"
-       android:verticalSpacing="20.0dip"
+       android:verticalSpacing="10dp"
        android:layout_centerInParent="true"
        style="@style/dashboard" />
  

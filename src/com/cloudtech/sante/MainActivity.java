@@ -1,6 +1,8 @@
 package com.cloudtech.sante;
 
 
+import com.cloudtech.sante.photo.DocumentActivity;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
