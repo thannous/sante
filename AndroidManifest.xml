@@ -5,31 +5,30 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
-    <!-- Permissions -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
+ <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.CAMERA"></uses-permission>
+	<uses-feature android:name="android.hardware.camera"/>
+	<uses-feature android:name="android.hardware.camera.autofocus"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.cloudtech.sante.MainActivity"
-            android:label="@string/app_name" >
+            android:name="com.cloudtech.sante.SplashScreen"
+            android:label="@string/app_name"
+			android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="com.cloudtech.sante.photo.DocumentActivity" />
         <activity android:name="com.cloudtech.sante.MemoActivity" />
         <activity android:name="com.cloudtech.sante.TimelineActivity" />
@@ -41,31 +40,35 @@
                 android:parentActivityName="com.cloudtech.sante.MainActivity" />
         <activity android:name="com.cloudtech.sante.EvolutionActivity" />
         <activity android:name="com.cloudtech.sante.UrgenceActivity" />
+
         <activity
-            android:name="com.cloudtech.sante.UserManagement"
-            android:label="Gestion des utilisateurs" />
-
-        <receiver android:name="SanteWidgetProvider" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/sante_widget_meta" />
-        </receiver>
-
-        <!-- Configure activity -->
-        <activity
-            android:name="SanteWidgetConfigure"
-            android:theme="@android:style/Theme.Dialog" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
-            </intent-filter>
+            android:name="com.cloudtech.sante.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >   
         </activity>
+     
 
-        <service android:name="SanteWidgetService" >
-        </service>
+  	
+  		
+  		<activity android:name="com.cloudtech.sante.UserManagement" android:label="Gestion des utilisateurs"/>
+		<receiver android:name="SanteWidgetProvider">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider"
+				android:resource="@xml/sante_widget_meta" />
+		</receiver>
+ 
+		<!-- Configure activity -->
+		<activity android:name="SanteWidgetConfigure" android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+			</intent-filter>
+		</activity>
+
+        <service android:name="SanteWidgetService"></service>
     </application>
+    
+
 
 </manifest>

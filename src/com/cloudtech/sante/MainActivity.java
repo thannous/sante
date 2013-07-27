@@ -17,18 +17,18 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	static final String EXTRA_MAP = "map";
 
 	static final LauncherIcon[] ICONS = {
-			new LauncherIcon(R.drawable.user_info, "Mes document",
-					"user_info.png"),
-			new LauncherIcon(R.drawable.user_info, "Mes infos de sante",
-					"user_info.png"),
-			new LauncherIcon(R.drawable.user_info, "Urgence",
-					"user_info.png"),
-			new LauncherIcon(R.drawable.user_info, "Mon evolution",
-					"user_info.png"),
-			new LauncherIcon(R.drawable.user_info, "Memo",
-					"user_info.png"),
-			new LauncherIcon(R.drawable.user_info, "Timeline",
-					"user_info.png")};
+			new LauncherIcon(R.drawable.doc, "Mes document",
+					"doc.png"),
+			new LauncherIcon(R.drawable.info, "Mes infos de sante",
+					"info.png"),
+			new LauncherIcon(R.drawable.urgence, "Urgence",
+					"urgence.png"),
+			new LauncherIcon(R.drawable.evo, "Mon evolution",
+					"evo.png"),
+			new LauncherIcon(R.drawable.memo, "Memo",
+					"memo.png"),
+			new LauncherIcon(R.drawable.time, "Timeline",
+					"time.png")};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -120,8 +120,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
 				v = vi.inflate(R.layout.dashboard_icon, null);
 				holder = new ViewHolder();
-				holder.text = (TextView) v
-						.findViewById(R.id.dashboard_icon_text);
+				//holder.text = (TextView) v
+				//		.findViewById(R.id.dashboard_icon_text);
 				holder.icon = (ImageView) v
 						.findViewById(R.id.dashboard_icon_img);
 				v.setTag(holder);
@@ -130,7 +130,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			}
 
 			holder.icon.setImageResource(ICONS[position].imgId);
-			holder.text.setText(ICONS[position].text);
+			//holder.text.setText(ICONS[position].text);
 
 			return v;
 		}
