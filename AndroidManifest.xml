@@ -29,7 +29,12 @@
             </intent-filter>
         </activity>
 
- 
+  		<activity android:name="com.cloudtech.sante.DocumentActivity" />
+  		<activity android:name="com.cloudtech.sante.MemoActivity"/>
+  		<activity android:name="com.cloudtech.sante.TimelineActivity" />
+  		<activity android:name="com.cloudtech.sante.InfoActivity" />
+  		<activity android:name="com.cloudtech.sante.EvolutionActivity" />
+  		<activity android:name="com.cloudtech.sante.UrgenceActivity" />
 		<receiver android:name="SanteWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
