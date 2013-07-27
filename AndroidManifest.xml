@@ -18,18 +18,22 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-
             android:name="com.cloudtech.sante.MainActivity"
-
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+     
 
- 
+  		<activity android:name="com.cloudtech.sante.DocumentActivity" />
+  		<activity android:name="com.cloudtech.sante.MemoActivity"/>
+  		<activity android:name="com.cloudtech.sante.TimelineActivity" />
+  		<activity android:name="com.cloudtech.sante.InfoActivity" />
+  		<activity android:name="com.cloudtech.sante.EvolutionActivity" />
+  		<activity android:name="com.cloudtech.sante.UrgenceActivity" />
+  		<activity android:name="com.cloudtech.sante.UserManagement" />
 		<receiver android:name="SanteWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -44,8 +48,8 @@
 				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
 			</intent-filter>
 		</activity>
-		
-		<service android:name="SanteWidgetService"></service>
+
+        <service android:name="SanteWidgetService"></service>
     </application>
     
 

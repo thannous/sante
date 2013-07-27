@@ -47,8 +47,8 @@ public class SanteWidgetConfigure extends PreferenceActivity {
 	        }
 	 
 			this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
-	 
-			// Preferences par default
+
+            // Pr&#xfffd;f&#xfffd;rences par d&#xfffd;fault
 			updateWidgetDefaultPrefs();
 	    }
 	 
@@ -66,7 +66,7 @@ public class SanteWidgetConfigure extends PreferenceActivity {
 		}
 	 
 		/*
-		 * Valeur par defaut
+		 * Valeur par d�faut
 		 */
 		private void updateWidgetDefaultPrefs()
 		{
@@ -77,7 +77,7 @@ public class SanteWidgetConfigure extends PreferenceActivity {
 		}
 	 
 		/*
-		 * Mise a jour du widget
+		 * Mise � jour du widget
 		 */
 	    private void confirm()
 	    {
