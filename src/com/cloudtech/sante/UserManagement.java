@@ -13,6 +13,7 @@ import android.widget.Button;
  * Gestion des utilisateurs
  */
 public class UserManagement extends Activity {
+    private Button bouton;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_management);
@@ -21,6 +22,34 @@ public class UserManagement extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+
+        bouton = (Button) findViewById(R.id.addUser);
+        bouton.setMinimumWidth(100);
+        bouton.setText("Ajouter Utilisateur");
+        bouton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                // Perform action on click
+                final Dialog dialog = new Dialog(v.getContext());
+                //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setTitle(R.string.action_adduser);
+                dialog.setContentView(R.layout.add_user);
+                dialog.setCancelable(true);
+                Button button =(Button)dialog.findViewById(R.id.btn_cancel);
+                button.setOnClickListener(new Button.OnClickListener() {
+                    public void onClick(View v)
+                    {
+                        dialog.cancel();
+                    }
+                });
+
+                //date.init(date.getYear(), date.getMonth(), date.getDayOfMonth(),null);
+
+                dialog.show();
             }
         });
     }
@@ -58,4 +87,6 @@ public class UserManagement extends Activity {
         }
         return super.onMenuItemSelected(featureId, item);
     }
+
+
 }
