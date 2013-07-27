@@ -23,10 +23,10 @@ public class SanteWidgetProvider extends AppWidgetProvider {
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds)
 	{
-		// On récupère les préférences
+        // On r&#xfffd;cup&#xfffd;re les pr&#xfffd;f&#xfffd;rences
 		this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
- 
-		// Création de l'alarme pour mettre à jour le widget
+
+        // Cr&#xfffd;ation de l'alarme pour mettre &#xfffd; jour le widget
 		final AlarmManager m = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
  
 		final Calendar TIME = Calendar.getInstance();
@@ -36,21 +36,21 @@ public class SanteWidgetProvider extends AppWidgetProvider {
  
 		for(int wid : appWidgetIds)
 		{
-			// Création de l'intent du service
+			// Crï¿½ation de l'intent du service
 			final Intent i = new Intent(context, SanteWidgetService.class);
 			// On passe l'id du widget
 			i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, new int[] { wid });
  
     		/*
-    		 * Cette ligne de code permet de corriger un problème sur android
-    		 * qui ne met à jour uniquement le dernier widget lorsque vous en ajoutez
+    		 * Cette ligne de code permet de corriger un problï¿½me sur android
+    		 * qui ne met ï¿½ jour uniquement le dernier widget lorsque vous en ajoutez
     		 * plusieurs sur votre bureau. Ne le supprimez pas ;)
     		 */
 			i.setData(Uri.withAppendedPath( Uri.parse("imgwidget://widget/id/"), String.valueOf(wid)));
  
 			service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);  
  
-			// Par défaut interval de 60 minutes
+			// Par dï¿½faut interval de 60 minutes
 			long time = Long.valueOf(this.prefs.getString("widget"+wid+"time", "60"));
  
 			m.setRepeating(AlarmManager.RTC, TIME.getTime().getTime(), time * 1000 * 60, service);
@@ -65,10 +65,10 @@ public class SanteWidgetProvider extends AppWidgetProvider {
  
 		for(int wid : appWidgetIds)
 		{
-			// On supprime les préférences
+			// On supprime les prï¿½fï¿½rences
 			prefeditor.remove("widget"+wid+"time");
  
-			// On récupère l'intent à supprimer
+			// On rï¿½cupï¿½re l'intent ï¿½ supprimer
 			final Intent i = new Intent(context, SanteWidgetService.class);
 			i.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, new int[] { wid });
 			i.setData(Uri.withAppendedPath( Uri.parse("imgwidget://widget/id/"), String.valueOf(wid)));
