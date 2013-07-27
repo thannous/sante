@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <string name="app_name">Sante</string>
-	<string name="menu_settings">Photo Settings</string>
+    <string name="menu_settings">Photo Settings</string>
     <string name="action_settings">Settings</string>
     <string name="action_users">Gestion utilisateurs</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_adduser">Ajouter un utilisateur</string>
     <string name="my_health_data">Mes infos de santé</string>
+    <string name="antecedents">Antécédents</string>
+    <string name="treatments">Traitements</string>
+    <string name="allergies">Allergies</string>
+    <string name="vaccines">Vaccins</string>
     <string name="action_about">A propos</string>
+    <string name="btnIntend">Take a picture</string>
+    <string name="cannot">Cannot</string>
+    <string name="album_name">MaSante</string>
+
 </resources>
