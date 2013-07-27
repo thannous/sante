@@ -19,28 +19,19 @@
             android:layout_height="wrap_content"
             android:contentDescription="Carnet de santé"
             android:src="@drawable/header" />
- <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:contentDescription="Profile"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp"
-        android:src="@drawable/profile" />
-    </RelativeLayout>
 
-    <GridView
-        android:id="@+id/dashboard_grid"
-        style="@style/dashboard"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:listSelector="@android:color/transparent"
-        android:padding="10dp"
-       
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" />
+ <ImageView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentRight="true"
+     android:layout_alignParentTop="true"
+     android:contentDescription="Profile"
+     android:paddingRight="10dp"
+     android:paddingTop="8dp"
+     
+     android:src="@drawable/profile" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,5 +42,99 @@
         android:layout_marginRight="81dp"
         android:text="Mme Rougé"
         android:textColor="@color/textHeader" />
+
+    <GridView
+        android:id="@+id/dashboard_grid"
+        style="@style/dashboard"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dashboard_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:contentDescription="3dp"
+        android:horizontalSpacing="3dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1dp" >
+
+    </GridView>
+
+	<RelativeLayout
+	    android:id="@+id/dashboard_footer"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:orientation="vertical" >
+
+	</RelativeLayout>
+
+	<LinearLayout
+	    android:id="@+id/relativeLayout1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:baselineAligned="true"
+	  	android:layout_marginLeft="12dp"
+	    android:layout_marginBottom="40dp"
+	    android:orientation="horizontal" >
+
+	    <ImageButton
+	        android:id="@+id/imageButton1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical"
+	        android:background="@android:color/transparent"
+	        android:paddingTop="10dp"
+	        android:layout_marginRight="10dp"
+	        android:src="@drawable/flecheg" />
+
+<AbsoluteLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+     <ImageView
+	        android:id="@+id/infopanelImg"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/infopanel" />
+
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_x="96dp"
+         android:layout_y="22dp"
+         android:text="Dr Montulipe"
+         android:textColor="@color/textHeader" />
+
+     <TextView
+         android:id="@+id/TextView01"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_x="42dp"
+         android:layout_y="42dp"
+         android:gravity="center"
+         android:text="Penser à lui demander une ordonnance ventoline"
+         android:textColor="@color/text2Header"
+         android:width="200dp" />
+
+</AbsoluteLayout>
+
+
+
+	    <ImageButton
+	        android:id="@+id/imageButton2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical"
+	        android:background="@android:color/transparent"
+	        android:src="@drawable/fleched" 
+	        android:paddingTop="10dp"
+	        android:layout_marginLeft="10dp"/>
+	</LinearLayout>
 
 </RelativeLayout>
