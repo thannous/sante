@@ -75,7 +75,7 @@ public class SanteWidgetService extends Service {
  
 			remoteViews.setOnClickPendingIntent(R.id.widget_image, pendingIntentRefresh);
  
-			// Notre image aléatoire
+			// Notre image aleatoire
 			loadImage(remoteViews, widgetId, this.randomImg());
 		}
  
@@ -96,13 +96,13 @@ public class SanteWidgetService extends Service {
 	}
  
 	/*
-	 * Récupération d'une image aléatoire
+	 * Recuperation d'une image aleatoire
 	 */
 	private String randomImg()
 	{
 		/*
 		 * Notez que l'android virtual devide (avd) semble poser
-		 * problème avec les domaines. (Soucis de DNS)
+		 * probleme avec les domaines. (Soucis de DNS)
 		 * Utilisez des ip direct pour vos test si vous en avez sinon
 		 * vous pouvez utiliser votre ip local.
 		 */
