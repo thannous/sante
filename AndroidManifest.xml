@@ -18,14 +18,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-
             android:name="com.cloudtech.sante.MainActivity"
-
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.cloudtech.sante.UserManagement"
+                android:label="@string/action_users" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category." />
             </intent-filter>
         </activity>
 
@@ -49,8 +54,8 @@
 				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
 			</intent-filter>
 		</activity>
-		
-		<service android:name="SanteWidgetService"></service>
+
+        <service android:name="SanteWidgetService"></service>
     </application>
     
 
