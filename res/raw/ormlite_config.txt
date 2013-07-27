@@ -1,13 +1,13 @@
 #
-# generated on 2013/07/27 02:26:08
+# generated on 2013/07/27 05:55:38
 #
 # --table-start--
-dataClass=com.example.com.bemyapp.sante.model.User
+dataClass=com.cloudtech.sante.model.User
 tableName=user
 # --table-fields-start--
 # --field-start--
 fieldName=idUser
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=birthDate
@@ -52,29 +52,29 @@ fieldName=socialSecurity
 # --table-end--
 #################################
 # --table-start--
-dataClass=com.example.com.bemyapp.sante.model.Allergy
+dataClass=com.cloudtech.sante.model.Allergy
 tableName=allergy
 # --table-fields-start--
 # --field-start--
 fieldName=idAllergy
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=nameAllergy
 # --field-end--
 # --field-start--
-fieldName=user
+fieldName=idUserAllergy
 # --field-end--
 # --table-fields-end--
 # --table-end--
 #################################
 # --table-start--
-dataClass=com.example.com.bemyapp.sante.model.DocCategory
+dataClass=com.cloudtech.sante.model.DocCategory
 tableName=doccategory
 # --table-fields-start--
 # --field-start--
 fieldName=idDocCategory
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=nameDocCategory
@@ -83,12 +83,12 @@ fieldName=nameDocCategory
 # --table-end--
 #################################
 # --table-start--
-dataClass=com.example.com.bemyapp.sante.model.Doc
+dataClass=com.cloudtech.sante.model.Doc
 tableName=doc
 # --table-fields-start--
 # --field-start--
 fieldName=idDoc
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=category
@@ -100,18 +100,18 @@ fieldName=idPicture
 fieldName=title
 # --field-end--
 # --field-start--
-fieldName=user
+fieldName=idUserDoc
 # --field-end--
 # --table-fields-end--
 # --table-end--
 #################################
 # --table-start--
-dataClass=com.example.com.bemyapp.sante.model.PreviousHistory
+dataClass=com.cloudtech.sante.model.PreviousHistory
 tableName=previoushistory
 # --table-fields-start--
 # --field-start--
 fieldName=id
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=doDate
@@ -120,18 +120,18 @@ fieldName=doDate
 fieldName=title
 # --field-end--
 # --field-start--
-fieldName=user
+fieldName=idUserPreviousHistory
 # --field-end--
 # --table-fields-end--
 # --table-end--
 #################################
 # --table-start--
-dataClass=com.example.com.bemyapp.sante.model.Treatment
+dataClass=com.cloudtech.sante.model.Treatment
 tableName=treatment
 # --table-fields-start--
 # --field-start--
 fieldName=idTreatment
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=nameTreatment
@@ -143,18 +143,18 @@ fieldName=startDate
 fieldName=finishDate
 # --field-end--
 # --field-start--
-fieldName=user
+fieldName=idUserTreatment
 # --field-end--
 # --table-fields-end--
 # --table-end--
 #################################
 # --table-start--
-dataClass=com.example.com.bemyapp.sante.model.Vaccin
+dataClass=com.cloudtech.sante.model.Vaccin
 tableName=vaccin
 # --table-fields-start--
 # --field-start--
 fieldName=idVaccin
-id=true
+generatedId=true
 # --field-end--
 # --field-start--
 fieldName=doDate
@@ -163,7 +163,7 @@ fieldName=doDate
 fieldName=nameVaccin
 # --field-end--
 # --field-start--
-fieldName=user
+fieldName=idUserVaccin
 # --field-end--
 # --table-fields-end--
 # --table-end--

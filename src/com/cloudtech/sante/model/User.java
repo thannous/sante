@@ -7,7 +7,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
 public class User {
-	@DatabaseField(id=true)
+	@DatabaseField(generatedId=true)
 	private int idUser;
 	@DatabaseField
 	private Date birthDate;

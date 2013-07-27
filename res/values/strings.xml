@@ -9,4 +9,5 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_adduser">Ajouter un utilisateur</string>
     <string name="my_health_data">Mes infos de santé</string>
+    <string name="action_about">A propos</string>
 </resources>
