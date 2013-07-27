@@ -27,7 +27,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	static final LauncherIcon[] ICONS = {
 			new LauncherIcon(R.drawable.user_info, "Mes document",
 					"user_info.png"),
-			new LauncherIcon(R.drawable.user_info, "Mes infos de santé",
+			new LauncherIcon(R.drawable.user_info, "Mes infos de sante",
 					"user_info.png"),
 			new LauncherIcon(R.drawable.user_info, "Urgence",
 					"user_info.png"),

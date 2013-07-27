@@ -9,4 +9,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_adduser">Ajouter un utilisateur</string>
     <string name="my_health_data">Mes infos de santé</string>
+    <string name="antecedents">Antécédents</string>
+    <string name="treatments">Traitements</string>
+    <string name="allergies">Allergies</string>
+    <string name="vaccines">Vaccins</string>
 </resources>
