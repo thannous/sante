@@ -30,4 +30,22 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="Sante.Theme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/Sante.ActionBar</item>
+    </style>
+
+    <style name="Sante.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#F7FBFC</item>
+        <item name="android:titleTextStyle">@style/Sante.Action.TextStyle</item>
+        <!--<item name="android:actionBarTabStyle">Sante.ActionBar.TabStyle</item>-->
+    </style>
+
+    <style name="Sante.Action.TextStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#1CA89F</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <!--<style name="Sante.ActionBar.TabStyle" parent="@android:style/Widget.Holo.Light.ActionBarView_TabView">-->
+        <!--<item name="android:actionBarTabTextStyle">@style/Sante.Action.TextStyle</item>-->
+    <!--</style>-->
 </resources>

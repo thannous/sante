@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,12 @@ public class InfoActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_layout);
 
+        //ACTION BAR
         ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+        //TABS
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab  treatmentTab = actionBar.newTab().setText(R.string.treatments);
         ActionBar.Tab  antecedentTab = actionBar.newTab().setText(R.string.antecedents);
@@ -94,6 +101,15 @@ public class InfoActivity extends Activity{
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.info, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     public class SanteTabListener implements ActionBar.TabListener{

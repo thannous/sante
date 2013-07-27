@@ -33,7 +33,12 @@
         <activity android:name="com.cloudtech.sante.photo.DocumentActivity" />
         <activity android:name="com.cloudtech.sante.MemoActivity" />
         <activity android:name="com.cloudtech.sante.TimelineActivity" />
-        <activity android:name="com.cloudtech.sante.InfoActivity" />
+        <activity
+                android:name="com.cloudtech.sante.InfoActivity"
+                android:label="@string/info_title"
+                android:logo="@drawable/logo"
+                android:theme="@style/Sante.Theme"
+                android:parentActivityName="com.cloudtech.sante.MainActivity" />
         <activity android:name="com.cloudtech.sante.EvolutionActivity" />
         <activity android:name="com.cloudtech.sante.UrgenceActivity" />
         <activity

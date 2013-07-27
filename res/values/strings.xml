@@ -16,5 +16,5 @@
     <string name="btnIntend">Take a picture</string>
     <string name="cannot">Cannot</string>
     <string name="album_name">MaSante</string>
-
+    <string name="info_title">Infos de santé</string>
 </resources>
