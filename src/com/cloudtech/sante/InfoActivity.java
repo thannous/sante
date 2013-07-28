@@ -1,7 +1,10 @@
 package com.cloudtech.sante;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.gesture.GestureOverlayView;
@@ -11,14 +14,16 @@ import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Button;
 
 public class InfoActivity extends Activity{
 
     private GestureDetector gestureDetector;
+    private Fragment currentTab;
 
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,55 +56,54 @@ public class InfoActivity extends Activity{
         actionBar.addTab(allergiesTab);
         actionBar.addTab(vaccinesTab);
 
-        gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.OnGestureListener() {
-            private static final int SWIPE_MIN_DISTANCE = 120;
-            private static final int SWIPE_THRESHOLD_VELOCITY = 100;
-
-            @Override
-            public boolean onDown(MotionEvent motionEvent) {
-                return false;
-            }
-
-            @Override
-            public void onShowPress(MotionEvent motionEvent) {
-
-            }
-
-            @Override
-            public boolean onSingleTapUp(MotionEvent motionEvent) {
-                return false;
-            }
-
-            @Override
-            public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float v, float v2) {
-                return false;
-            }
-
-            @Override
-            public void onLongPress(MotionEvent motionEvent) {
-
-            }
-
-            @Override
-            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                    // Right to left, your code here
-                    return true;
-                } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) >  SWIPE_THRESHOLD_VELOCITY) {
-                    // Left to right, your code here
-                    return true;
-                }
-                if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    // Bottom to top, your code here
-                    return true;
-                } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    // Top to bottom, your code here
-                    return true;
-                }
-                return false;
-            }
-        });
-
+//        gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.OnGestureListener() {
+//            private static final int SWIPE_MIN_DISTANCE = 120;
+//            private static final int SWIPE_THRESHOLD_VELOCITY = 100;
+//
+//            @Override
+//            public boolean onDown(MotionEvent motionEvent) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onShowPress(MotionEvent motionEvent) {
+//
+//            }
+//
+//            @Override
+//            public boolean onSingleTapUp(MotionEvent motionEvent) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float v, float v2) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onLongPress(MotionEvent motionEvent) {
+//
+//            }
+//
+//            @Override
+//            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+//                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+//                    // Right to left, your code here
+//                    return true;
+//                } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) >  SWIPE_THRESHOLD_VELOCITY) {
+//                    // Left to right, your code here
+//                    return true;
+//                }
+//                if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+//                    // Bottom to top, your code here
+//                    return true;
+//                } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+//                    // Top to bottom, your code here
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
 
     }
 
@@ -112,10 +116,47 @@ public class InfoActivity extends Activity{
         return super.onCreateOptionsMenu(menu);
     }
 
-    public class SanteTabListener implements ActionBar.TabListener{
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+
+        final Dialog dialog = new Dialog(this);
+
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                dialog.setTitle(((InfoFragment)currentTab).getFragmentCreateTitle());
+                dialog.setContentView(R.layout.add_info_dialog);
+                dialog.setCancelable(true);
+                Button btnSave =(Button)dialog.findViewById(R.id.btn_save);
+                Button btnCancel =(Button)dialog.findViewById(R.id.btn_cancel);
+                btnSave.setOnClickListener(new Button.OnClickListener() {
+                    public void onClick(View v)
+                    {
+                        dialog.cancel();
+                    }
+                });
+
+                btnCancel.setOnClickListener(new Button.OnClickListener() {
+                    public void onClick(View v)
+                    {
+                        dialog.cancel();
+                    }
+                });
+                break;
+            default:
+                break;
+        }
+
+        dialog.show();
+
+        return super.onMenuItemSelected(featureId, item);
+    }
+
+    @SuppressLint("ValidFragment")
+	public class SanteTabListener implements ActionBar.TabListener{
         public Fragment fragment;
 
         public SanteTabListener(Fragment fragment){
+            currentTab = fragment;
             this.fragment = fragment;
         }
 
@@ -129,6 +170,7 @@ public class InfoActivity extends Activity{
         @Override
         public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft)
         {
+            currentTab = fragment;
             ft.replace(R.id.fragment_container, fragment);
         }
 
@@ -139,8 +181,34 @@ public class InfoActivity extends Activity{
         }
     }
 
-    public class TreatmentFragment extends Fragment
+
+    @SuppressLint("ValidFragment")
+	public class InfoFragment extends Fragment
     {
+        public String getFragmentName(){
+            return "pouet";
+        }
+
+        public String getFragmentCreateTitle(){
+            return "pouet";
+        }
+
+    }
+
+
+    @SuppressLint("ValidFragment")
+	public class TreatmentFragment extends InfoFragment
+    {
+        @Override
+        public String getFragmentName(){
+            return getResources().getString(R.string.treatment);
+        }
+
+        @Override
+        public String getFragmentCreateTitle(){
+            return getResources().getString(R.string.add_treatment);
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
@@ -148,8 +216,19 @@ public class InfoActivity extends Activity{
         }
     }
 
-    public class AntecedentFragment extends Fragment
+    @SuppressLint("ValidFragment")
+	public class AntecedentFragment extends TreatmentFragment
     {
+        @Override
+        public String getFragmentName(){
+            return getResources().getString(R.string.antecedent);
+        }
+
+        @Override
+        public String getFragmentCreateTitle(){
+            return getResources().getString(R.string.add_antecedent);
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
@@ -157,7 +236,18 @@ public class InfoActivity extends Activity{
         }
     }
 
-    public class AllergyFragment extends Fragment{
+    @SuppressLint("ValidFragment")
+	public class AllergyFragment extends TreatmentFragment{
+        @Override
+        public String getFragmentName(){
+            return getResources().getString(R.string.allergy);
+        }
+
+        @Override
+        public String getFragmentCreateTitle(){
+            return getResources().getString(R.string.add_allergy);
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
@@ -165,7 +255,19 @@ public class InfoActivity extends Activity{
         }
     }
 
-    public class VaccinFragment extends Fragment{
+    @SuppressLint("ValidFragment")
+	public class VaccinFragment extends TreatmentFragment
+    {
+        @Override
+        public String getFragmentName(){
+            return getResources().getString(R.string.vaccine);
+        }
+
+        @Override
+        public String getFragmentCreateTitle(){
+            return getResources().getString(R.string.add_vaccine);
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment

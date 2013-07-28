@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Spinner
+            android:id="@+id/user_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/users"
+            android:prompt="@string/select_user"
+            android:layout_marginLeft="30dp"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@string/name"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_gravity="center"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="@string/date"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:layout_gravity="center"/>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:id="@+id/btn_save"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:id="@+id/btn_cancel"
+                android:layout_gravity="center_horizontal|top"
+                />
+
+    </LinearLayout>
+
+</LinearLayout>

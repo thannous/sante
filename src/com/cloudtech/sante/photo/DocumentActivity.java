@@ -6,7 +6,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,8 +24,13 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -29,6 +39,7 @@ import com.cloudtech.sante.R.id;
 import com.cloudtech.sante.R.layout;
 import com.cloudtech.sante.R.string;
 
+@SuppressLint("ValidFragment")
 public class DocumentActivity extends Activity {
 
 	private static final int ACTION_TAKE_PHOTO_B = 1;
@@ -50,6 +61,8 @@ public class DocumentActivity extends Activity {
 	private String getAlbumName() {
 		return getString(R.string.album_name);
 	}
+
+    private  Fragment currentTab;
 
 
 	private File getAlbumDir() {
@@ -184,24 +197,88 @@ public class DocumentActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_camera);
+		setContentView(layout.info_layout);
 
-		mImageView = (ImageView) findViewById(R.id.imageView1);
-		mImageBitmap = null;
+//		mImageView = (ImageView) findViewById(R.id.imageView1);
+//		mImageBitmap = null;
+//
+//		Button picBtn = (Button) findViewById(R.id.btnIntend);
+//		setBtnListenerOrDisable(
+//				picBtn,
+//				mTakePicOnClickListener,
+//				MediaStore.ACTION_IMAGE_CAPTURE
+//				);
+//
+//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+//			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
+//		} else {
+//			mAlbumStorageDirFactory = new BaseAlbumDirFactory();
+//		}
 
-		Button picBtn = (Button) findViewById(R.id.btnIntend);
-		setBtnListenerOrDisable( 
-				picBtn, 
-				mTakePicOnClickListener,
-				MediaStore.ACTION_IMAGE_CAPTURE
-				);
+        //ACTION BAR
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
-			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
-		} else {
-			mAlbumStorageDirFactory = new BaseAlbumDirFactory();
-		}
+        //TABS
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        ActionBar.Tab  crhospitalisationsTab = actionBar.newTab().setText(R.string.crhospitalisation);
+        ActionBar.Tab  examensTab = actionBar.newTab().setText(R.string.examens);
+        ActionBar.Tab  crRadiosTab = actionBar.newTab().setText(R.string.radios);
+        ActionBar.Tab  ordonnancesTab = actionBar.newTab().setText(R.string.ordonnances);
+        ActionBar.Tab  remboursementsTab = actionBar.newTab().setText(R.string.remboursements);
+        ActionBar.Tab  autresTab = actionBar.newTab().setText(R.string.autres);
+
+        Fragment CRHospitalisationFragment = new CRHospitalisationFragment();
+        Fragment ExamensFragment = new ExamensFragment();
+        Fragment CRRadioFragment = new CRRadioFragment();
+        Fragment OrdonnancesFragment = new OrdonnancesFragment();
+        Fragment RemboursementsFragment = new RemboursementsFragment();
+        Fragment AutresFragment = new AutresFragment();
+
+
+        crhospitalisationsTab.setTabListener(new DocumentTabListener(CRHospitalisationFragment));
+        examensTab.setTabListener(new DocumentTabListener(ExamensFragment));
+        crRadiosTab.setTabListener(new DocumentTabListener(CRRadioFragment));
+        ordonnancesTab.setTabListener(new DocumentTabListener(OrdonnancesFragment));
+        remboursementsTab.setTabListener(new DocumentTabListener(RemboursementsFragment));
+        autresTab.setTabListener(new DocumentTabListener(AutresFragment));
+
+        actionBar.addTab(crhospitalisationsTab);
+        actionBar.addTab(examensTab);
+        actionBar.addTab(crRadiosTab);
+        actionBar.addTab(ordonnancesTab);
+        actionBar.addTab(remboursementsTab);
+        actionBar.addTab(autresTab);
+
 	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.document, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+
+        final Dialog dialog = new Dialog(this);
+
+        switch (item.getItemId()) {
+            case R.id.action_add:
+
+                break;
+            default:
+                break;
+        }
+
+        dialog.show();
+
+        return super.onMenuItemSelected(featureId, item);
+    }
+
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -270,4 +347,91 @@ public class DocumentActivity extends Activity {
 		}
 	}
 
+    public class DocumentFragment extends Fragment
+    {
+
+    }
+
+    public class CRHospitalisationFragment extends DocumentFragment
+    {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.crhospitalisation_fragment, container, false);
+        }
+    }
+
+    public class ExamensFragment extends DocumentFragment
+    {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.examen_fragment, container, false);
+        }
+    }
+
+    public class CRRadioFragment extends DocumentFragment
+    {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.crradio_fragment, container, false);
+        }
+    }
+
+    public class OrdonnancesFragment extends DocumentFragment
+    {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.ordonnances_fragment, container, false);
+        }
+    }
+
+    public class RemboursementsFragment extends DocumentFragment
+    {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.remboursements_fragment, container, false);
+        }
+    }
+
+    public class AutresFragment extends DocumentFragment
+    {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.autres_fragment, container, false);
+        }
+    }
+
+    public class DocumentTabListener implements ActionBar.TabListener{
+        public Fragment fragment;
+
+        public DocumentTabListener(Fragment fragment){
+            currentTab = fragment;
+            this.fragment = fragment;
+        }
+
+        @Override
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft)
+        {
+
+
+        }
+
+        @Override
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft)
+        {
+            currentTab = fragment;
+            ft.replace(R.id.fragment_container, fragment);
+        }
+
+        @Override
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft)
+        {
+            ft.remove(fragment);
+        }
+    }
 }
