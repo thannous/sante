@@ -56,25 +56,25 @@ public class DocumentActivity extends Activity {
 
 	private AlbumStorageDirFactory mAlbumStorageDirFactory = null;
 
-
 	/* Photo album for this application */
 	private String getAlbumName() {
 		return getString(R.string.album_name);
 	}
 
-    private  Fragment currentTab;
-
+	private Fragment currentTab;
 
 	private File getAlbumDir() {
 		File storageDir = null;
 
-		if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+		if (Environment.MEDIA_MOUNTED.equals(Environment
+				.getExternalStorageState())) {
 
-			storageDir = mAlbumStorageDirFactory.getAlbumStorageDir(getAlbumName());
+			storageDir = mAlbumStorageDirFactory
+					.getAlbumStorageDir(getAlbumName());
 
 			if (storageDir != null) {
-				if (! storageDir.mkdirs()) {
-					if (! storageDir.exists()){
+				if (!storageDir.mkdirs()) {
+					if (!storageDir.exists()) {
 						Log.d("CameraSample", "failed to create directory");
 						return null;
 					}
@@ -82,7 +82,8 @@ public class DocumentActivity extends Activity {
 			}
 
 		} else {
-			Log.v(getString(R.string.app_name), "External storage is not mounted READ/WRITE.");
+			Log.v(getString(R.string.app_name),
+					"External storage is not mounted READ/WRITE.");
 		}
 
 		return storageDir;
@@ -91,10 +92,12 @@ public class DocumentActivity extends Activity {
 	private File createImageFile() throws IOException {
 		// Create an image file name
 		// TODO Modifier le nommage des photos
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(new Date());
 		String imageFileName = JPEG_FILE_PREFIX + timeStamp + "_";
 		File albumF = getAlbumDir();
-		File imageF = File.createTempFile(imageFileName, JPEG_FILE_SUFFIX, albumF);
+		File imageF = File.createTempFile(imageFileName, JPEG_FILE_SUFFIX,
+				albumF);
 		return imageF;
 	}
 
@@ -125,7 +128,7 @@ public class DocumentActivity extends Activity {
 		/* Figure out which way needs to be reduced less */
 		int scaleFactor = 1;
 		if ((targetW > 0) || (targetH > 0)) {
-			scaleFactor = Math.min(photoW/targetW, photoH/targetH);	
+			scaleFactor = Math.min(photoW / targetW, photoH / targetH);
 		}
 
 		/* Set bitmap options to scale the image decode target */
@@ -142,7 +145,8 @@ public class DocumentActivity extends Activity {
 	}
 
 	private void galleryAddPic() {
-		Intent mediaScanIntent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+		Intent mediaScanIntent = new Intent(
+				"android.intent.action.MEDIA_SCANNER_SCAN_FILE");
 		File f = new File(mCurrentPhotoPath);
 		Uri contentUri = Uri.fromFile(f);
 		mediaScanIntent.setData(contentUri);
@@ -153,14 +157,15 @@ public class DocumentActivity extends Activity {
 
 		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-		switch(actionCode) {
+		switch (actionCode) {
 		case ACTION_TAKE_PHOTO_B:
 			File f = null;
 
 			try {
 				f = setUpPhotoFile();
 				mCurrentPhotoPath = f.getAbsolutePath();
-				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+						Uri.fromFile(f));
 			} catch (IOException e) {
 				e.printStackTrace();
 				f = null;
@@ -169,7 +174,7 @@ public class DocumentActivity extends Activity {
 			break;
 
 		default:
-			break;			
+			break;
 		} // switch
 
 		startActivityForResult(takePictureIntent, actionCode);
@@ -185,8 +190,7 @@ public class DocumentActivity extends Activity {
 
 	}
 
-	Button.OnClickListener mTakePicOnClickListener = 
-			new Button.OnClickListener() {
+	Button.OnClickListener mTakePicOnClickListener = new Button.OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			dispatchTakePictureIntent(ACTION_TAKE_PHOTO_B);
@@ -199,86 +203,80 @@ public class DocumentActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(layout.info_layout);
 
-//		mImageView = (ImageView) findViewById(R.id.imageView1);
-//		mImageBitmap = null;
-//
-//		Button picBtn = (Button) findViewById(R.id.btnIntend);
-//		setBtnListenerOrDisable(
-//				picBtn,
-//				mTakePicOnClickListener,
-//				MediaStore.ACTION_IMAGE_CAPTURE
-//				);
-//
-//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
-//			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
-//		} else {
-//			mAlbumStorageDirFactory = new BaseAlbumDirFactory();
-//		}
+		// ACTION BAR
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 
-        //ACTION BAR
-        ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+		// TABS
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		ActionBar.Tab crhospitalisationsTab = actionBar.newTab().setText(
+				R.string.crhospitalisation);
+		ActionBar.Tab examensTab = actionBar.newTab().setText(R.string.examens);
+		ActionBar.Tab crRadiosTab = actionBar.newTab().setText(R.string.radios);
+		ActionBar.Tab ordonnancesTab = actionBar.newTab().setText(
+				R.string.ordonnances);
+		ActionBar.Tab remboursementsTab = actionBar.newTab().setText(
+				R.string.remboursements);
+		ActionBar.Tab autresTab = actionBar.newTab().setText(R.string.autres);
 
-        //TABS
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar.Tab  crhospitalisationsTab = actionBar.newTab().setText(R.string.crhospitalisation);
-        ActionBar.Tab  examensTab = actionBar.newTab().setText(R.string.examens);
-        ActionBar.Tab  crRadiosTab = actionBar.newTab().setText(R.string.radios);
-        ActionBar.Tab  ordonnancesTab = actionBar.newTab().setText(R.string.ordonnances);
-        ActionBar.Tab  remboursementsTab = actionBar.newTab().setText(R.string.remboursements);
-        ActionBar.Tab  autresTab = actionBar.newTab().setText(R.string.autres);
+		Fragment CRHospitalisationFragment = new CRHospitalisationFragment();
+		Fragment ExamensFragment = new ExamensFragment();
+		Fragment CRRadioFragment = new CRRadioFragment();
+		Fragment OrdonnancesFragment = new OrdonnancesFragment();
+		Fragment RemboursementsFragment = new RemboursementsFragment();
+		Fragment AutresFragment = new AutresFragment();
 
-        Fragment CRHospitalisationFragment = new CRHospitalisationFragment();
-        Fragment ExamensFragment = new ExamensFragment();
-        Fragment CRRadioFragment = new CRRadioFragment();
-        Fragment OrdonnancesFragment = new OrdonnancesFragment();
-        Fragment RemboursementsFragment = new RemboursementsFragment();
-        Fragment AutresFragment = new AutresFragment();
+		crhospitalisationsTab.setTabListener(new DocumentTabListener(
+				CRHospitalisationFragment));
+		examensTab.setTabListener(new DocumentTabListener(ExamensFragment));
+		crRadiosTab.setTabListener(new DocumentTabListener(CRRadioFragment));
+		ordonnancesTab.setTabListener(new DocumentTabListener(
+				OrdonnancesFragment));
+		remboursementsTab.setTabListener(new DocumentTabListener(
+				RemboursementsFragment));
+		autresTab.setTabListener(new DocumentTabListener(AutresFragment));
 
-
-        crhospitalisationsTab.setTabListener(new DocumentTabListener(CRHospitalisationFragment));
-        examensTab.setTabListener(new DocumentTabListener(ExamensFragment));
-        crRadiosTab.setTabListener(new DocumentTabListener(CRRadioFragment));
-        ordonnancesTab.setTabListener(new DocumentTabListener(OrdonnancesFragment));
-        remboursementsTab.setTabListener(new DocumentTabListener(RemboursementsFragment));
-        autresTab.setTabListener(new DocumentTabListener(AutresFragment));
-
-        actionBar.addTab(crhospitalisationsTab);
-        actionBar.addTab(examensTab);
-        actionBar.addTab(crRadiosTab);
-        actionBar.addTab(ordonnancesTab);
-        actionBar.addTab(remboursementsTab);
-        actionBar.addTab(autresTab);
+		actionBar.addTab(crhospitalisationsTab);
+		actionBar.addTab(examensTab);
+		actionBar.addTab(crRadiosTab);
+		actionBar.addTab(ordonnancesTab);
+		actionBar.addTab(remboursementsTab);
+		actionBar.addTab(autresTab);
 
 	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.document, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.document, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
 
-    @Override
+	@Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
 
         final Dialog dialog = new Dialog(this);
 
         switch (item.getItemId()) {
             case R.id.action_add:
-
+       	
+        			Log.d("TAGGGGGGG", "click photo");
+        			 dialog.show();      
+        		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+      			mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
+        			} else {
+        			mAlbumStorageDirFactory = new BaseAlbumDirFactory();
+        			}
                 break;
             default:
                 break;
         }
 
-        dialog.show();
+       
 
         return super.onMenuItemSelected(featureId, item);
     }
-
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -288,15 +286,16 @@ public class DocumentActivity extends Activity {
 				handleBigCameraPhoto();
 			}
 			break;
-		} 
-		} 
+		}
+		}
 	}
 
 	// Some lifecycle callbacks so that the image can survive orientation change
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		outState.putParcelable(BITMAP_STORAGE_KEY, mImageBitmap);
-		outState.putBoolean(IMAGEVIEW_VISIBILITY_STORAGE_KEY, (mImageBitmap != null) );
+		outState.putBoolean(IMAGEVIEW_VISIBILITY_STORAGE_KEY,
+				(mImageBitmap != null));
 		super.onSaveInstanceState(outState);
 	}
 
@@ -305,10 +304,10 @@ public class DocumentActivity extends Activity {
 		super.onRestoreInstanceState(savedInstanceState);
 		mImageBitmap = savedInstanceState.getParcelable(BITMAP_STORAGE_KEY);
 		mImageView.setImageBitmap(mImageBitmap);
-		mImageView.setVisibility(
-				savedInstanceState.getBoolean(IMAGEVIEW_VISIBILITY_STORAGE_KEY) ? 
-						ImageView.VISIBLE : ImageView.INVISIBLE
-				);
+		mImageView
+				.setVisibility(savedInstanceState
+						.getBoolean(IMAGEVIEW_VISIBILITY_STORAGE_KEY) ? ImageView.VISIBLE
+						: ImageView.INVISIBLE);
 	}
 
 	/**
@@ -317,121 +316,118 @@ public class DocumentActivity extends Activity {
 	 * respond to an intent with the specified action. If no suitable package is
 	 * found, this method returns false.
 	 * http://android-developers.blogspot.com/2009/01/can-i-use-this-intent.html
-	 *
-	 * @param context The application's environment.
-	 * @param action The Intent action to check for availability.
-	 *
+	 * 
+	 * @param context
+	 *            The application's environment.
+	 * @param action
+	 *            The Intent action to check for availability.
+	 * 
 	 * @return True if an Intent with the specified action can be sent and
 	 *         responded to, false otherwise.
 	 */
 	public static boolean isIntentAvailable(Context context, String action) {
 		final PackageManager packageManager = context.getPackageManager();
 		final Intent intent = new Intent(action);
-		List<ResolveInfo> list =
-				packageManager.queryIntentActivities(intent,
-						PackageManager.MATCH_DEFAULT_ONLY);
+		List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
+				PackageManager.MATCH_DEFAULT_ONLY);
 		return list.size() > 0;
 	}
 
-	private void setBtnListenerOrDisable( 
-			Button btn, 
-			Button.OnClickListener onClickListener,
-			String intentName
-			) {
+	private void setBtnListenerOrDisable(Button btn,
+			Button.OnClickListener onClickListener, String intentName) {
 		if (isIntentAvailable(this, intentName)) {
-			btn.setOnClickListener(onClickListener);        	
+			btn.setOnClickListener(onClickListener);
 		} else {
-			btn.setText( 
-					getText(R.string.cannot).toString() + " " + btn.getText());
+			btn.setText(getText(R.string.cannot).toString() + " "
+					+ btn.getText());
 			btn.setClickable(false);
 		}
 	}
 
-    public class DocumentFragment extends Fragment
-    {
+	public class DocumentFragment extends Fragment {
 
-    }
+	}
 
-    public class CRHospitalisationFragment extends DocumentFragment
-    {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.crhospitalisation_fragment, container, false);
-        }
-    }
+	public class CRHospitalisationFragment extends DocumentFragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			// Inflate the layout for this fragment
+			return inflater.inflate(R.layout.crhospitalisation_fragment,
+					container, false);
+		}
+	}
 
-    public class ExamensFragment extends DocumentFragment
-    {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.examen_fragment, container, false);
-        }
-    }
+	public class ExamensFragment extends DocumentFragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			// Inflate the layout for this fragment
+			return inflater.inflate(R.layout.examen_fragment, container, false);
+		}
+	}
 
-    public class CRRadioFragment extends DocumentFragment
-    {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.crradio_fragment, container, false);
-        }
-    }
+	public class CRRadioFragment extends DocumentFragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			// Inflate the layout for this fragment
+			return inflater
+					.inflate(R.layout.crradio_fragment, container, false);
+		}
+	}
 
-    public class OrdonnancesFragment extends DocumentFragment
-    {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.ordonnances_fragment, container, false);
-        }
-    }
+	public class OrdonnancesFragment extends DocumentFragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			// Inflate the layout for this fragment
+			return inflater.inflate(R.layout.ordonnances_fragment, container,
+					false);
+		}
+	}
 
-    public class RemboursementsFragment extends DocumentFragment
-    {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.remboursements_fragment, container, false);
-        }
-    }
+	public class RemboursementsFragment extends DocumentFragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			// Inflate the layout for this fragment
+			return inflater.inflate(R.layout.remboursements_fragment,
+					container, false);
+		}
+	}
 
-    public class AutresFragment extends DocumentFragment
-    {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.autres_fragment, container, false);
-        }
-    }
+	public class AutresFragment extends DocumentFragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			// Inflate the layout for this fragment
+			return inflater.inflate(R.layout.autres_fragment, container, false);
+		}
+	}
 
-    public class DocumentTabListener implements ActionBar.TabListener{
-        public Fragment fragment;
+	public class DocumentTabListener implements ActionBar.TabListener {
+		public Fragment fragment;
 
-        public DocumentTabListener(Fragment fragment){
-            currentTab = fragment;
-            this.fragment = fragment;
-        }
+		public DocumentTabListener(Fragment fragment) {
+			currentTab = fragment;
+			this.fragment = fragment;
+		}
 
-        @Override
-        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft)
-        {
+		@Override
+		public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
+		}
 
-        }
+		@Override
+		public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+			currentTab = fragment;
+			ft.replace(R.id.fragment_container, fragment);
+		}
 
-        @Override
-        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft)
-        {
-            currentTab = fragment;
-            ft.replace(R.id.fragment_container, fragment);
-        }
-
-        @Override
-        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft)
-        {
-            ft.remove(fragment);
-        }
-    }
+		@Override
+		public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+			ft.remove(fragment);
+		}
+	}
 }

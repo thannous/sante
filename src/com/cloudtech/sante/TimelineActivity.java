@@ -15,9 +15,9 @@ public class TimelineActivity extends Activity {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        TextView tall = (TextView)findViewById(R.id.txt_list_allergies);
-        TextView tant = (TextView)findViewById(R.id.txt_list_antecedents);
-        tall.setText(Html.fromHtml(getString(R.string.list_allergies)));
-        tant.setText(Html.fromHtml(getString(R.string.list_antecedents)));
+//        TextView tall = (TextView)findViewById(R.id.txt_list_allergies);
+//        TextView tant = (TextView)findViewById(R.id.txt_list_antecedents);
+//        tall.setText(Html.fromHtml(getString(R.string.list_allergies)));
+//        tant.setText(Html.fromHtml(getString(R.string.list_antecedents)));
     }
 }
