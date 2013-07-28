@@ -16,7 +16,7 @@ gen/*
 local.properties
 
 # Android studio files
-.gitignore
+masantemobile.iml
 
 # Eclipse project files
 .classpath
