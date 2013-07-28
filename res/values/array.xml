@@ -2,10 +2,10 @@
 <resources>
  
 	<string-array name="widgetListOptionsTimeLabels">
-		<item>15 minutes</item>
-		<item>30 minutes</item>
-		<item>1 heure</item>
-		<item>2 heures</item>
+		<item>15 jours</item>
+		<item>30 jours</item>
+		<item>45 jours</item>
+		<item>90 jours</item>
 	</string-array>
     <string-array name="widgetListOptionsTimeValues">
 		<item>15</item>
@@ -13,5 +13,11 @@
 		<item>60</item>
 		<item>120</item>
 	</string-array>
- 
+    <string-array name="users">
+        <item>Charlotte</item>
+        <item>Jean</item>
+        <item>Marie</item>
+        <item>Paul</item>
+    </string-array>
+
 </resources>

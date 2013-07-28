@@ -5,106 +5,123 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
- <!-- Permissions -->
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-	<uses-permission android:name="android.permission.CAMERA"></uses-permission>
-	<uses-feature android:name="android.hardware.camera"/>
-	<uses-feature android:name="android.hardware.camera.autofocus"/>
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" >
+    </uses-permission>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-                android:screenOrientation="portrait"
             android:name="com.cloudtech.sante.SplashScreen"
             android:label="@string/app_name"
-			android:theme="@android:style/Theme.NoTitleBar">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.cloudtech.sante.photo.DocumentActivity"
-                  android:label="@string/documents_title"
-                  android:logo="@drawable/logo"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Sante.Theme"/>
-        <activity android:name="com.cloudtech.sante.MemoActivity"
-                  android:label="@string/memo_title"
-                  android:logo="@drawable/logo"
-                  android:theme="@style/Sante.Theme"
-                  android:screenOrientation="portrait"
-                  android:parentActivityName="com.cloudtech.sante.MainActivity"/>
-        <activity android:name="com.cloudtech.sante.TimelineActivity"
-                  android:label="@string/timeline_title"
-                  android:logo="@drawable/logo"
-                  android:theme="@style/Sante.Theme"
-                  android:screenOrientation="portrait"
-                  android:parentActivityName="com.cloudtech.sante.MainActivity"/>
         <activity
-                android:name="com.cloudtech.sante.InfoActivity"
-                android:label="@string/info_title"
-                android:logo="@drawable/logo"
-                android:theme="@style/Sante.Theme"
-                android:screenOrientation="portrait"
-                android:parentActivityName="com.cloudtech.sante.MainActivity" />
-        <activity android:name="com.cloudtech.sante.EvolutionActivity"
-                  android:label="@string/evolution_title"
-                  android:logo="@drawable/logo"
-                  android:theme="@style/Sante.Theme"
-                  android:screenOrientation="portrait"
-                  android:parentActivityName="com.cloudtech.sante.MainActivity"/>
-        <activity android:name="com.cloudtech.sante.UrgenceActivity"
-                  android:label="@string/urgence_title"
-                  android:logo="@drawable/logo"
-                  android:theme="@style/Sante.Theme"
-                  android:screenOrientation="portrait"
-                  android:parentActivityName="com.cloudtech.sante.MainActivity" />
-
+            android:name="com.cloudtech.sante.photo.DocumentActivity"
+            android:label="@string/documents_title"
+            android:logo="@drawable/logo"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:theme="@style/Sante.Theme" />
+        <activity
+            android:name="com.cloudtech.sante.MemoActivity"
+            android:label="@string/memo_title"
+            android:logo="@drawable/logo" 
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Sante.Theme" />
+        <activity
+            android:name="com.cloudtech.sante.TimelineActivity"
+            android:label="@string/timeline_title"
+            android:logo="@drawable/logo"
+                   
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Sante.Theme" />
+        <activity
+            android:name="com.cloudtech.sante.InfoActivity"
+            android:label="@string/info_title"
+            android:logo="@drawable/logo"
+ 
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Sante.Theme" />
+        <activity
+            android:name="com.cloudtech.sante.EvolutionActivity"
+            android:label="@string/evolution_title"
+            android:logo="@drawable/logo"
+ 
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Sante.Theme" />
+        <activity
+            android:name="com.cloudtech.sante.UrgenceActivity"
+            android:label="@string/urgence_title"
+            android:logo="@drawable/logo"
+       
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Sante.Theme" />
         <activity
             android:name="com.cloudtech.sante.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >   
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
-        <activity android:name="com.cloudtech.sante.CapucineActivity"
-                  android:label="@string/capucine_title"
-                  android:logo="@drawable/logo"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Sante.Theme"
-                  android:parentActivityName="com.cloudtech.sante.MainActivity"/>
+        <activity
+            android:name="com.cloudtech.sante.CapucineActivity"
+            android:label="@string/capucine_title"
+            android:logo="@drawable/logo"
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Sante.Theme" />
+        <activity
+            android:name="com.cloudtech.sante.UserManagement"
+            android:label="Gestion des utilisateurs"
+            android:logo="@drawable/logo"
+            android:parentActivityName="com.cloudtech.sante.MainActivity"
+            android:theme="@style/Sante.Theme" />
 
+        <receiver android:name="SanteWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
 
-  		<activity android:name="com.cloudtech.sante.UserManagement"
-                  android:label="Gestion des utilisateurs"
-                  android:logo="@drawable/logo"
-                  android:theme="@style/Sante.Theme"
-                  android:parentActivityName="com.cloudtech.sante.MainActivity"/>
-		<receiver android:name="SanteWidgetProvider">
-			<intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-			</intent-filter>
-			<meta-data android:name="android.appwidget.provider"
-				android:resource="@xml/sante_widget_meta" />
-		</receiver>
- 
-		<!-- Configure activity -->
-		<activity android:name="SanteWidgetConfigure" android:theme="@android:style/Theme.Dialog">
-			<intent-filter>
-				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
-			</intent-filter>
-		</activity>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/sante_widget_meta" />
+        </receiver>
 
+        <!-- Configure activity -->
+        <activity
+            android:name="SanteWidgetConfigure"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
 
-        <service android:name="SanteWidgetService"></service>
+        <service android:name="SanteWidgetService" >
+        </service>
     </application>
-    
-
 
 </manifest>

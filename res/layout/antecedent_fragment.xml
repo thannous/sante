@@ -3,7 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@drawable/bg">
 
     <ScrollView
             android:layout_width="fill_parent"
@@ -22,7 +23,7 @@
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:background="#98daff"
+                    style="@style/Sante.ListItemStyle"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
@@ -33,6 +34,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="01/01/1975"
+                        android:textColor="@color/text2Header"
                         android:id="@+id/textView2"
                         android:layout_gravity="left|top"/>
 
@@ -41,6 +43,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Hypertension artérielle"
+                        android:textColor="@color/textHeader"
                         android:id="@+id/textView"
                         android:layout_gravity="left|center_vertical"/>
             </FrameLayout>
@@ -52,7 +55,7 @@
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:background="#98daff"
+                    style="@style/Sante.ListItemStyle"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
@@ -64,6 +67,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="01/01/1975"
+                        android:textColor="@color/text2Header"
                         android:id="@+id/textView6"
                         android:layout_gravity="left|top"/>
 
@@ -72,6 +76,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Hypercholostrérolémie"
+                        android:textColor="@color/textHeader"
                         android:id="@+id/textView3"
                         android:layout_gravity="left|center_vertical"/>
             </FrameLayout>
@@ -83,7 +88,7 @@
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:background="#98daff"
+                    style="@style/Sante.ListItemStyle"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
@@ -95,6 +100,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Diabète de type 2"
+                        android:textColor="@color/textHeader"
                         android:id="@+id/textView4"
                         android:layout_gravity="left|center_vertical"/>
             </FrameLayout>
@@ -106,7 +112,7 @@
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:background="#98daff"
+                    style="@style/Sante.ListItemStyle"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
@@ -118,6 +124,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="01/01/1975"
+                        android:textColor="@color/text2Header"
                         android:id="@+id/textView5"
                         android:layout_gravity="left|top"/>
 
@@ -126,6 +133,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Opération appendicite"
+                        android:textColor="@color/textHeader"
                         android:id="@+id/textView7"
                         android:layout_gravity="left|center_vertical"/>
             </FrameLayout>
