@@ -77,15 +77,15 @@
                   android:label="@string/capucine_title"
                   android:logo="@drawable/logo"
                   android:screenOrientation="portrait"
-                  android:theme="@style/Sante.Theme"/>
+                  android:theme="@style/Sante.Theme"
+                  android:parentActivityName="com.cloudtech.sante.MainActivity"/>
 
 
   		<activity android:name="com.cloudtech.sante.UserManagement"
                   android:label="Gestion des utilisateurs"
                   android:logo="@drawable/logo"
                   android:theme="@style/Sante.Theme"
-                  android:parentActivityName="com.cloudtech.sante.MainActivity"
-                />
+                  android:parentActivityName="com.cloudtech.sante.MainActivity"/>
 		<receiver android:name="SanteWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
