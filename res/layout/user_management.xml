@@ -7,8 +7,16 @@
 
 
     <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:background="@drawable/bg">
+
+        <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView"
+                android:layout_gravity="center"/>
 
         <Button
                 style="?android:attr/buttonStyleSmall"
@@ -16,14 +24,19 @@
                 android:layout_height="wrap_content"
                 android:text="Ajouter Utilisateur"
                 android:id="@+id/addUser"
-                android:layout_gravity="center_horizontal|top"/>
+                android:layout_gravity="center_horizontal|top"
+                android:visibility="invisible"
+                android:enabled="false"/>
 
         <Button
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="back"
-                android:id="@+id/btn_back" android:layout_gravity="center_horizontal|top"/>
+                android:id="@+id/btn_back" android:layout_gravity="center_horizontal|top"
+                android:enabled="false"
+                android:visibility="invisible"/>
+
     </LinearLayout>
 
 </LinearLayout>
