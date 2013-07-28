@@ -23,7 +23,26 @@
     <string name="memo_title">Mon mémo</string>
     <string name="credits_html">
         <![CDATA[
-        <p>Test de code HTML avec un <a href="http://www.throrinstudio.com">lien</a>. <b>Et un texte en gras</b></p>
+        <p><center>
+        <b>Idée Originale de :</b><br />
+        Amaury Larreur<br />
+        Liouma Tokitsu <br />
+        <br />
+        <b>Développement</b><br />
+        Samuel Mantunes<br />
+        Thanh<br />
+        Jean Minouflet<br />
+        Andrei Talantsy<br />
+        Ilyess Zenasni<br />
+        Amaury Larreur<br />
+        <br />
+        <b>Design</b><br />
+        Yadira Guzman<br /><br />
+        <b>Avec la participation de </b>
+       <br/>
+       Philippe Vacheyrout <br />
+       Alex Delivet
+       </center></p>
         ]]>
     </string>
     <string name="documents_title">Mes documents</string>
