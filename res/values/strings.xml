@@ -17,4 +17,7 @@
     <string name="cannot">Cannot</string>
     <string name="album_name">MaSante</string>
     <string name="info_title">Infos de santé</string>
+    <string name="urgence_title">Urgence</string>
+    <string name="timeline_title">Timeline</string>
+    <string name="evolution_title">Mon évolution</string>
 </resources>
