@@ -20,4 +20,5 @@
     <string name="urgence_title">Urgence</string>
     <string name="timeline_title">Timeline</string>
     <string name="evolution_title">Mon évolution</string>
+    <string name="memo_title">Mon mémo</string>
 </resources>
