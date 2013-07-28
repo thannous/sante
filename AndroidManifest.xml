@@ -29,37 +29,47 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.cloudtech.sante.photo.DocumentActivity" />
+        <activity android:name="com.cloudtech.sante.photo.DocumentActivity"
+                  android:label="@string/documents_title"
+                  android:logo="@drawable/logo"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Sante.Theme"/>
         <activity android:name="com.cloudtech.sante.MemoActivity"
                   android:label="@string/memo_title"
                   android:logo="@drawable/logo"
                   android:theme="@style/Sante.Theme"
+                  android:screenOrientation="portrait"
                   android:parentActivityName="com.cloudtech.sante.MainActivity"/>
         <activity android:name="com.cloudtech.sante.TimelineActivity"
                   android:label="@string/timeline_title"
                   android:logo="@drawable/logo"
                   android:theme="@style/Sante.Theme"
+                  android:screenOrientation="portrait"
                   android:parentActivityName="com.cloudtech.sante.MainActivity"/>
         <activity
                 android:name="com.cloudtech.sante.InfoActivity"
                 android:label="@string/info_title"
                 android:logo="@drawable/logo"
                 android:theme="@style/Sante.Theme"
+                android:screenOrientation="portrait"
                 android:parentActivityName="com.cloudtech.sante.MainActivity" />
         <activity android:name="com.cloudtech.sante.EvolutionActivity"
                   android:label="@string/evolution_title"
                   android:logo="@drawable/logo"
                   android:theme="@style/Sante.Theme"
+                  android:screenOrientation="portrait"
                   android:parentActivityName="com.cloudtech.sante.MainActivity"/>
         <activity android:name="com.cloudtech.sante.UrgenceActivity"
                   android:label="@string/urgence_title"
                   android:logo="@drawable/logo"
                   android:theme="@style/Sante.Theme"
+                  android:screenOrientation="portrait"
                   android:parentActivityName="com.cloudtech.sante.MainActivity" />
 
         <activity
             android:name="com.cloudtech.sante.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >   
         </activity>
      
