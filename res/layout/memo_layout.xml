@@ -9,6 +9,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+        <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView">
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="419dp"
+                    android:text="Blabla"
+                    android:id="@+id/textView"/>
+        </ScrollView>
+
     </LinearLayout>
 
 </LinearLayout>
