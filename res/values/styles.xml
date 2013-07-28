@@ -32,7 +32,9 @@
 
     <style name="Sante.Theme" parent="AppTheme">
         <item name="android:actionBarStyle">@style/Sante.ActionBar</item>
+        <item name="android:windowBackground">@drawable/bg</item>
     </style>
+
 
     <style name="Sante.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">#F7FBFC</item>
