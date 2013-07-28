@@ -50,7 +50,12 @@
 
   	
   		
-  		<activity android:name="com.cloudtech.sante.UserManagement" android:label="Gestion des utilisateurs"/>
+  		<activity android:name="com.cloudtech.sante.UserManagement"
+                  android:label="Gestion des utilisateurs"
+                  android:logo="@drawable/logo"
+                  android:theme="@style/Sante.Theme"
+                  android:parentActivityName="com.cloudtech.sante.MainActivity"
+                />
 		<receiver android:name="SanteWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
