@@ -21,4 +21,10 @@
     <string name="timeline_title">Timeline</string>
     <string name="evolution_title">Mon évolution</string>
     <string name="memo_title">Mon mémo</string>
+
+    <string name="credits_html">
+        <![CDATA[
+        <p>Test de code HTML avec un <a href="http://www.throrinstudio.com">lien</a>. <b>Et un texte en gras</b></p>
+        ]]>
+    </string>
 </resources>

@@ -3,11 +3,13 @@ package com.cloudtech.sante;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by a.talviy on 27/07/13.

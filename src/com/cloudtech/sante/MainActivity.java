@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.*;
 import android.view.View.OnTouchListener;
 import android.widget.*;
@@ -38,6 +39,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
         GridView gridview = (GridView) findViewById(R.id.dashboard_grid);
         gridview.setAdapter(new ImageAdapter(this));
+
         gridview.setOnItemClickListener(this);
 
         // Hack to disable GridView scrolling
@@ -153,12 +155,16 @@ public class MainActivity extends Activity implements OnItemClickListener {
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_about:
-                final Dialog dialog = new Dialog(this);
+                Dialog dialog = new Dialog(this);
                 //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setTitle(R.string.action_about);
                 dialog.setContentView(R.layout.credit);
                 dialog.setCancelable(true);
+                TextView text = (TextView)dialog.findViewById(R.id.creditTextView);
+                text.setText(Html.fromHtml(getString(R.string.credits_html)));
+
                 dialog.show();
+
                 break;
             default:
                 break;
