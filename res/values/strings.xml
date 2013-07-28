@@ -45,6 +45,21 @@
        </center></p>
         ]]>
     </string>
+    <string name="memo_html">
+        <![CDATA[
+        <p><center><br /><br />
+        <b>RDV Dr Jean Pierre :</b><br />
+        Le 36 du mois.<br />
+        <br />
+        <b>Pharmacie</b><br />
+        Voir pour Dynamisant (sans ordonnance).<br />
+        <br />
+        <b>Acheter avant le 19 </b><br />
+        1 boit de bionisant<br />
+
+       </center></p>
+        ]]>
+    </string>
     <string name="documents_title">Mes documents</string>
     <string name="action_add_contact">Persone a contacter</string>
     <string name="list_allergies">
