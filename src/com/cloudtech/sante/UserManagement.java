@@ -60,7 +60,7 @@ public class UserManagement extends Activity {
     {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.info, menu);
+        inflater.inflate(R.menu.usermanagement, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
