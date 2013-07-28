@@ -2,11 +2,11 @@ package com.cloudtech.sante;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.ProgressBar;
 
 /**
  * Created by a.talviy on 28/07/13.
@@ -31,12 +31,11 @@ public class CapucineActivity extends Activity {
         final Message msg = new Message();
         msg.what = STOP;
         step1Handler.sendMessageDelayed(msg, SPLASHTIME);
-        progress2 = (ProgressBar) findViewById(R.id.progressStep1);
     }
 
-    private ProgressBar progress2;
     private Handler mHandler = new Handler();
-    private int mProgressStatus = 0;
+    private  int progressBarStatus = 0;
+    ProgressDialog progressBar;
 
     private int doWork(int value)
     {
@@ -56,37 +55,40 @@ public class CapucineActivity extends Activity {
         public void handleMessage(Message msg) {
             if (msg.what == STOP) {
                 if (!isFinishing()) {
-
-
-                    View layout = findViewById(R.id.step2);
                     View progress = findViewById(R.id.progressStep1);
-
-                    layout.setVisibility(View.VISIBLE);
                     progress.setVisibility(View.INVISIBLE);
 
-                    // Start lengthy operation in a background thread
+
+                    // prepare for a progress bar dialog
+                     progressBar = new ProgressDialog(progress.getContext());
+                    progressBar.setCancelable(false);
+                    progressBar.setMessage("Téléchargement des données");
+                    progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                    progressBar.setProgress(0);
+                    progressBar.setMax(100);
+                    progressBar.show();
+
+
                     new Thread(new Runnable() {
                         public void run() {
+                            while (progressBarStatus < 100) {
+                                try {
+                                    Thread.sleep(50);
 
-                            while (mProgressStatus < 200) {
-                                mProgressStatus++;
-                                try
-                                {
-                                Thread.sleep(50);
-                                }
-                                catch (InterruptedException e)
-                                {
+                                } catch (InterruptedException e) {
                                     return;
                                 }
-                                progress2.setProgress(mProgressStatus);
-
+                                // process some tasks
+                                progressBarStatus++;
                                 // Update the progress bar
-                               /* mHandler.post(new Runnable() {
+                                mHandler.post(new Runnable() {
                                     public void run() {
-                                        progress2.setProgress(mProgressStatus);
+                                        progressBar.setProgress(progressBarStatus);
                                     }
-                                });*/
+                                });
                             }
+                                // close the progress bar dialog
+                                progressBar.dismiss();
                             finish();
                         }
                     }).start();
