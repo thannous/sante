@@ -12,12 +12,13 @@
             android:layout_height="wrap_content"
             android:text="Ajouter Utilisateur"
             android:id="@+id/addUser"
-            android:layout_gravity="center"/>
+            />
 
     <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="back"
-            android:id="@+id/btn_back" android:layout_gravity="left"/>
+            android:id="@+id/btn_back" android:layout_gravity="right|center_vertical"/>
 
 </LinearLayout>
