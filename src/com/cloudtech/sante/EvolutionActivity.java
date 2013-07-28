@@ -7,7 +7,7 @@ import android.os.Bundle;
 public class EvolutionActivity extends Activity{
 	   public void onCreate(final Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
-           setContentView(R.layout.timeline_layout);
+           setContentView(R.layout.evolution_layout);
 
            //ACTION BAR
            ActionBar actionBar = getActionBar();
