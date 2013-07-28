@@ -146,6 +146,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         menu.findItem(R.id.action_users).setIntent(new Intent(this, UserManagement.class));
+        menu.findItem(R.id.action_capucine).setIntent(new Intent(this, CapucineActivity.class));
         // pour le menu a propos, on ne fera pas de navigation vers une activity
         // a la place on le gere la methode de selection de menu
         return true;

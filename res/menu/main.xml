@@ -7,8 +7,15 @@
             android:showAsAction="never"
             android:title="@string/action_users"/>
     <item
+            android:id="@+id/action_capucine"
+            android:orderInCategory="100"
+            android:showAsAction="never"
+            android:title="@string/action_capucine"/>
+
+    <item
             android:id="@+id/action_about"
             android:orderInCategory="100"
             android:showAsAction="never"
             android:title="@string/action_about"/>
+
 </menu>

@@ -73,10 +73,13 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >   
         </activity>
-     
+        <activity android:name="com.cloudtech.sante.CapucineActivity"
+                  android:label="@string/capucine_title"
+                  android:logo="@drawable/logo"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Sante.Theme"/>
 
-  	
-  		
+
   		<activity android:name="com.cloudtech.sante.UserManagement"
                   android:label="Gestion des utilisateurs"
                   android:logo="@drawable/logo"
@@ -97,6 +100,7 @@
 				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
 			</intent-filter>
 		</activity>
+
 
         <service android:name="SanteWidgetService"></service>
     </application>
