@@ -8,7 +8,7 @@
                android:layout_gravity="center_horizontal"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"/>
-    <TextView android:text="1 * Approcher la carte CAPUCINE pour authentifier "
+    <TextView android:text="Approcher la carte CAPUCINE pour authentifier "
               android:layout_gravity="center_horizontal"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"/>
@@ -18,19 +18,4 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"/>
 
-    <LinearLayout  android:id="@+id/step2" android:visibility="invisible"
-            android:orientation="vertical"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent">
-        <TextView android:text="2 * Carte reconnue. Téléchargement des données du serveur"
-                  android:layout_gravity="center_horizontal"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"/>
-        <ProgressBar style="?android:attr/progressBarStyleHorizontal"
-                     android:max="100"
-                     android:progress="0"
-                     android:layout_width="fill_parent"
-                     android:layout_height="20dp"
-                     android:id="@+id/progressStep2"/>
-    </LinearLayout>
 </LinearLayout>
